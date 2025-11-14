@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --watch src --exec \"ts-node\" src/server.ts",
-    "build": "tsc -p tsconfig.json",
-    "start":"node build/server.js",
+    "build": "tsc -p tsconfig.json && npm run copy:schemas",
+    "copy:schemas": "copyfiles -u 1 src/validators/**/* build/",
+    "start": "node build/server.js",
     "generate:types": "ts-node src/utils/generate-types.ts"
   },
   "keywords": [],
@@ -27,12 +28,13 @@
     "firebase-admin": "^13.5.0"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^24.7.1",
+    "copyfiles": "^2.4.1",
     "json-schema-to-typescript": "^15.0.4",
     "nodemon": "^3.1.10",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
