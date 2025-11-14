@@ -1,0 +1,14 @@
+{
+  "$id": "validators/auth/register-google.schema.json",
+  "title": "Register with Google User Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["authorization"],
+  "properties": {
+    "authorization": {
+      "type": "string",
+      "pattern": "^Bearer\\s.+$",
+      "description": "Bearer token from Google or Firebase Auth"
+    }
+  }
+}

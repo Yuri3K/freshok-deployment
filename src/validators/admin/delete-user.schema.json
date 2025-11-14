@@ -1,0 +1,14 @@
+{
+  "$id": "admin/delete-user.schema.json",
+  "title": "Delete User",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uid"],
+  "properties": {
+    "uid": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Firebase UID of the user to delete"
+    }
+  }
+}

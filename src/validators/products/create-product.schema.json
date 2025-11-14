@@ -1,0 +1,61 @@
+{
+  "$id": "validators/products/create.schema.json",
+  "title": "Create Product Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "price", "categoryId"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 150,
+      "description": "Product title"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 2000,
+      "description": "Detailed product description"
+    },
+    "price": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000,
+      "description": "Product price in main currency"
+    },
+    "categoryId": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]{10,}$",
+      "description": "Category identifier (UUID or custom ID)"
+    },
+    "images": {
+      "type": "array",
+      "description": "Array of product image URLs",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "maxItems": 10
+    },
+    "stock": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of items in stock"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the product is visible in the store"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 30
+      },
+      "uniqueItems": true,
+      "maxItems": 20,
+      "description": "Tags for filtering and search"
+    }
+  }
+}

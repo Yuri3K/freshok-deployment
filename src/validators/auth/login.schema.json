@@ -1,0 +1,21 @@
+{
+  "$id": "validators/auth/login.schema.json",
+  "title": "Login Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["email", "password"],
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email",
+      "maxLength": 255,
+      "description": "User email address"
+    },
+    "password": {
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 128,
+      "description": "User password (plaintext, to be hashed server-side)"
+    }
+  }
+}

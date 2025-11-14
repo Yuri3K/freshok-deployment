@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    // Уровень JavaScript, в который компилируется TypeScript.
+    // ES2022 — современный стандарт (async/await, class fields, т.д.)
+    "target": "ES2022",
+
+    // Формат модулей. CommonJS используется Node.js до сих пор (require / module.exports)
+    "module": "commonjs",
+
+    // Как искать модули — правило Node.js.
+    // Это означает, что TypeScript будет искать файлы так же, как Node.js при require()
+    "moduleResolution": "node",
+
+    // Включает строгий режим TypeScript — обязательный флаг для production проектов.
+    // Проверяет null/undefined, неявные типы и многое другое.
+    "strict": true,
+
+    // Корневая папка исходников TypeScript
+    "rootDir": "src",
+
+    // Папка, куда будут собираться скомпилированные файлы
+    "outDir": "./build",
+
+     // Поддержка декораторов — нужна, если когда-то будешь использовать NestJS или TypeORM
+    "experimentalDecorators": true,
+
+    // Связано с декораторами — генерирует метаданные типов для рефлексии
+    "emitDecoratorMetadata": true,
+
+    // Позволяет писать import express from 'express' вместо import * as express from 'express'
+    "esModuleInterop": true,
+
+    // Пропускает проверку типов библиотек в node_modules — ускоряет сборку
+    "skipLibCheck": true,
+
+    // Позволяет импортировать JSON напрямую (например: import config from './config.json')
+    "resolveJsonModule": true, // нужно для firebaseAdmin.ts, где импортируется JSON ключ
+
+    // Указывает, что доступны типы Node.js (process, __dirname и т.д.)
+    "types": ["node"],
+
+    // Указывает, где искать типы (например, @types/express)
+    "typeRoots": ["./node_modules/@types"]
+  },
+  // Каталоги с исходным кодом, которые нужно компилировать
+  "include": ["src/**/*"],
+
+  // Исключаем node_modules (иначе компилятор начнет анализировать тысячи файлов)
+  "exclude": ["node_modules"]
+}
