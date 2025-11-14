@@ -24,9 +24,6 @@
      // Поддержка декораторов — нужна, если когда-то будешь использовать NestJS или TypeORM
     "experimentalDecorators": true,
 
-    // Связано с декораторами — генерирует метаданные типов для рефлексии
-    "emitDecoratorMetadata": true,
-
     // Позволяет писать import express from 'express' вместо import * as express from 'express'
     "esModuleInterop": true,
 
