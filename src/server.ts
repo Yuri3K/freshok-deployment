@@ -11,8 +11,7 @@ app.use(cors({
   credentials: true,
   origin: [
     'http://localhost:4200',
-    'https://github.com/Yuri3K',
-    'https://github.com/Yuri3K/freshok-frontend'
+    'https://yuri3k.github.io',
   ]
 }))
 
