@@ -9,11 +9,13 @@ const PORT = process.env.PORT || 5000
 // Настройка CORS
 app.use(cors({
   credentials: true,
-  origin: [
-    'http://localhost:4200', 
-    'https://yuri3k.github.io',
-    'https://yuri3k.github.io/freshok-frontend/home']
+  origin: '*'
 }))
+
+// [
+//     'http://localhost:4200', 
+//     'https://yuri3k.github.io',
+//     'https://yuri3k.github.io/freshok-frontend/home']
 
 // Middleware для парсинга тела запроса (JSON и URL-encoded)
 app.use(express.json({ limit: '60mb' })); // Для JSON
